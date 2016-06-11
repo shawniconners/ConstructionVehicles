@@ -1,0 +1,331 @@
+<!DOCTYPE html>
+<!--
+ Licensed to the Apache Software Foundation (ASF) under one
+ or more contributor license agreements.  See the NOTICE file
+ distributed with this work for additional information
+ regarding copyright ownership.  The ASF licenses this file
+ to you under the Apache License, Version 2.0 (the
+ "License"); you may not use this file except in compliance
+ with the License.  You may obtain a copy of the License at
+ 
+ http://www.apache.org/licenses/LICENSE-2.0
+ 
+ Unless required by applicable law or agreed to in writing,
+ software distributed under the License is distributed on an
+ "AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY
+ KIND, either express or implied.  See the License for the
+ specific language governing permissions and limitations
+ under the License.
+ -->
+<html>
+    <head>
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+        <meta name="format-detection" content="telephone=no" />
+        <meta name="viewport" content="user-scalable=no, initial-scale=1, maximum-scale=1, minimum-scale=1, width=device-width, height=device-height, target-densitydpi=device-dpi" />
+        <link rel="stylesheet" type="text/css" href="css/index.css" />
+        <title>Construction Vehicles</title>
+		<script>
+			
+			
+			
+			function preventBehavior(e)
+			{
+				e.preventDefault();
+			};
+			
+			function funShowItem(inc_element_id){
+				document.getElementById(inc_element_id).style.visibility = "visible";
+				document.getElementById(inc_element_id).style.display = "block";
+			}
+			
+			function funHideItem(inc_element_id){
+				document.getElementById(inc_element_id).style.visibility = "hidden";
+				document.getElementById(inc_element_id).style.display = "none";
+			}
+			
+			
+			
+			
+			function funHome(){
+				window.location.href = "index.html";
+			}
+			
+			function funChange(){
+				var elmSelect = document.getElementById("select_option");
+				var strValue = elmSelect.options[elmSelect.selectedIndex].value;
+				strValue = "div_option_" + strValue;
+				
+				for (var i=0; i<elmSelect.length; i++){
+					funHideItem("div_option_" + elmSelect.options[i].value);
+				}
+				
+				
+				
+				funShowItem(strValue);
+			}
+			
+			function funStart(){
+				document.getElementById("div_home_button").addEventListener('touchend', function(){funHome();}, false);
+				document.getElementById("select_option").addEventListener('change', function(){funChange();}, false);
+			}
+			
+			
+			
+			
+			
+			</script>
+		<style>
+			body, div, img{
+				margin: 0px;
+				padding: 0px;
+				
+			}
+			#div_container{
+				background: url('img/background.png');
+				background-size: 100%;
+				width: 1024px;
+				height: 748px;
+			}
+			
+			
+			#div_home_button{
+				background: url('img/home.png');
+				background-size: 100%;
+				width: 210px;
+				height: 118px;
+				position: absolute;
+				top: 630px;
+				left: 702px;
+			}
+			#div_select_info{
+				width: 480px;
+				height: 20px;
+				position: absolute;
+				top: 628px;
+				left: 120px;
+				text-align: left;
+				font-size: 20px;
+				font-family: Verdana;
+				color: #FFF;
+			}
+			#select_option{
+				width: 480px;
+				height: 60px;
+				position: absolute;
+				top: 658px;
+				left: 120px;
+				padding: 20px;
+				text-align: center;
+				font-size: 40px;
+				font-family: Verdana;
+				color: #000;
+			}
+			.div_options{
+				visibility: hidden;
+				display: none;
+				position: absolute;
+				left: 20px;
+				top: 70px;
+				width: 756px;
+				height: 340px;
+			}
+			
+			#div_options_background {
+				position: absolute;
+				width: 800px;
+				height: 480px;
+				background: #324158;
+				border-radius: 50% / 10%;
+				color: white;
+				text-align: center;
+				text-indent: .1em;
+				top: 62px;
+				left: 112px;
+			}
+			#div_options_background:before {
+				content: '';
+				position: absolute;
+				top: 10%;
+				bottom: 10%;
+				right: -5%;
+				left: -5%;
+				background: inherit;
+				border-radius: 5% / 50%;
+			}
+			#div_option_tractor{
+				visibility: visible;
+				display: block;
+			}
+			.img_option_image {
+				position: absolute;
+				width: 360px;
+				border: 5px solid #FFF;
+				top: 0px;
+				left: 0px;
+			}
+			
+			.div_option_title {
+				position: absolute;
+				width: 336px;
+				color: #FFF;
+				padding: 10px;
+				top: -16px;
+				left: 400px;
+				text-align: left;
+				font-size: 24px;
+				font-family: Verdana;
+			}
+			
+			.div_option_description {
+				position: absolute;
+				width: 336px;
+				color: #FFF;
+				padding: 10px;
+				top: 50px;
+				left: 400px;
+				text-align: left;
+				font-size: 14px;
+				font-family: Verdana;
+			}
+			.div_option_credit {
+				color: #FFF;
+				margin: 0px 0px 0px 220px;
+			}
+		</style>
+		
+    </head>
+    <body>
+		<div id="div_container">
+			<div id="div_home_button"></div>
+			<div id="div_select_info">Choose a Vehicle:</div>
+			<select id="select_option">
+				<option value="tractor">Tractor</option>
+				<option value="cementmixer">Cement Mixer</option>
+				<option value="flatbedtruck">Flatbed Truck</option>
+				<option value="dumptruck">Dump Truck</option>
+				<option value="pickuptruck">Pickup Truck</option>
+				<option value="bulldozer">Bulldozer</option>
+				<option value="excavator">Excavator</option>
+				<option value="forklift">Forklift</option>
+				<option value="crane">Crane</option>
+				<option value="steamroller">Steamroller</option>
+			</select>
+			<div id="div_options_background">
+				<div class="div_options" id="div_option_tractor">
+					<img class="img_option_image" src="img/options_photos/tractor.jpg"/>
+					<div class="div_option_title">
+						Tractor
+					</div>
+					<div class="div_option_description">
+						A tractor is an engineering vehicle specifically designed to deliver a high tractive effort (or torque) at slow speeds, for the purposes of hauling a trailer or machinery used in agriculture or construction.<br/>
+						<div class="div_option_credit">- Wikipedia</div>
+					</div>
+				</div>
+				<div class="div_options" id="div_option_cementmixer">
+					<img class="img_option_image" src="img/options_photos/cementmixer.jpg"/>
+					<div class="div_option_title">
+						Cement Mixer
+					</div>
+					<div class="div_option_description">
+						A concrete mixer (also commonly called a cement mixer) is a device that homogeneously combines cement, aggregate such as sand or gravel, and water to form concrete.
+						<br/>
+						<div class="div_option_credit">- Wikipedia</div>
+					</div>
+				</div>
+				<div class="div_options" id="div_option_flatbedtruck">
+					<img class="img_option_image" src="img/options_photos/flatbedtruck.jpg"/>
+					<div class="div_option_title">
+						Flatbed Truck
+					</div>
+					<div class="div_option_description">
+						A flatbed truck is a type of truck that has an entirely flat, level 'bed' body with no sides or roof. This allows for quick and easy loading of goods that are not delicate, such as construction equipment, and also for abnormal loads that require more space than is available on a closed body.
+						<br/>
+						<div class="div_option_credit">- Wikipedia</div>
+					</div>
+				</div>
+				<div class="div_options" id="div_option_dumptruck">
+					<img class="img_option_image" src="img/options_photos/dumptruck.jpg"/>
+					<div class="div_option_title">
+						Dump Truck
+					</div>
+					<div class="div_option_description">
+						A dump truck (or, UK, dumper truck) is a truck used for transporting loose material (such as sand, gravel, or dirt) for construction.
+						<br/>
+						<div class="div_option_credit">- Wikipedia</div>
+					</div>
+				</div>
+				<div class="div_options" id="div_option_pickuptruck">
+					<img class="img_option_image" src="img/options_photos/pickuptruck.jpg"/>
+					<div class="div_option_title">
+						Pickup Truck
+					</div>
+					<div class="div_option_description">
+						A pickup truck is a light motor vehicle with an open-top, rear cargo area (bed).
+						<br/>
+						<div class="div_option_credit">- Wikipedia</div>
+					</div>
+				</div>
+				<div class="div_options" id="div_option_bulldozer">
+					<img class="img_option_image" src="img/options_photos/bulldozer.jpg"/>
+					<div class="div_option_title">
+						Bulldozer
+					</div>
+					<div class="div_option_description">
+						A bulldozer is a crawler (continuous tracked tractor) equipped with a substantial metal plate (known as a blade) used to push large quantities of soil, sand, rubble, or other such material during construction or conversion work and typically equipped at the rear with a claw-like device (known as a ripper) to loosen densely-compacted materials.
+						<br/>
+						<div class="div_option_credit">- Wikipedia</div>
+					</div>
+				</div>
+				<div class="div_options" id="div_option_excavator">
+					<img class="img_option_image" src="img/options_photos/excavator.jpg"/>
+					<div class="div_option_title">
+						Excavator
+					</div>
+					<div class="div_option_description">
+						Excavators are heavy construction equipment consisting of a boom, stick, bucket and cab on a rotating platform (known as the "house"). 
+						<br/>
+						<div class="div_option_credit">- Wikipedia</div>
+					</div>
+				</div>
+				<div class="div_options" id="div_option_forklift">
+					<img class="img_option_image" src="img/options_photos/forklift.jpg"/>
+					<div class="div_option_title">
+						Forklift
+					</div>
+					<div class="div_option_description">
+						A forklift truck (also called a lift truck, a fork truck, a forklift, or a tow-motor) is a powered industrial truck used to lift and transport materials. 
+						<br/>
+						<div class="div_option_credit">- Wikipedia</div>
+					</div>
+				</div>
+				<div class="div_options" id="div_option_crane">
+					<img class="img_option_image" src="img/options_photos/crane.jpg"/>
+					<div class="div_option_title">
+						Crane
+					</div>
+					<div class="div_option_description">
+						A crane is a type of machine, generally equipped with a hoist, wire ropes or chains, and sheaves, that can be used both to lift and lower materials and to move them horizontally. It is mainly used for lifting heavy things and transporting them to other places. 
+						<br/>
+						<div class="div_option_credit">- Wikipedia</div>
+					</div>
+				</div>
+				<div class="div_options" id="div_option_steamroller">
+					<img class="img_option_image" src="img/options_photos/steamroller.jpg"/>
+					<div class="div_option_title">
+						Steamroller
+					</div>
+					<div class="div_option_description">
+						A steamroller is a type of heavy construction machinery used for levelling surfaces, such as roads or airfields – that is powered by a steam engine. The levelling/flattening action is achieved through a combination of the size and weight of the vehicle and the rolls: the smooth wheels and the large cylinder or drum fitted in place of treaded road wheels.
+						<br/>
+						<div class="div_option_credit">- Wikipedia</div>
+					</div>
+				</div>
+			</div>
+		</div>
+        <script type="text/javascript" src="cordova-2.2.0rc1.js"></script>
+        <script type="text/javascript" src="js/index.js"></script>
+        <script type="text/javascript">
+            app.initialize();
+			</script>
+    </body>
+</html>
